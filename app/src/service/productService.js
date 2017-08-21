@@ -23,6 +23,11 @@ export function getPatterns() {
 }
 
 export function getImage(horiz, vert) {
+    console.log(horiz, vert);
     console.log('getImage fired');
-	return axios.get('https://unsplash.it/api/' + {horiz} + '/' + {vert}).then(res => res.data)
+	return axios.get('https://unsplash.it/' + horiz + '/' + vert).then(res => res)
+}
+export function getList() {
+    console.log('getList fired');
+	return axios.get('https://unsplash.it/list').then(res => res.data)
 }

@@ -34,14 +34,56 @@ p { font-size: 15px;}
 .App-logo {
   
 }
-.App-header {
-  height: 300px;
-  color: white;
-  display:flex;
+.App-header-container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-top: 10px solid #333;
   border-bottom: 10px solid #333;
+  height: 400px;
+}
+.App-header {
+  color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+/* .App-header div {
+  display: flex;
+  justify-content:flex-end;
+} */
+.App-header div h4 {
+  color:#fff;
+  margin-top: 40px;
+  text-align:center;
+  text-shadow: 1px 1px #000;
+}
+.App-header div h4 a{
+  font-size:20px;
+  color:#fff;
+}
+.author-block {
+  display: flex;
+  justify-content: center;
+  background-image:url('../img/debut_dark.png');
+  padding:40px 40px;
+}
+.author-block h4 {
+  color:#fff;
+  text-shadow: 1px 1px #000;
+}
+.author-block h4 a{
+  font-size:20px;
+  color:#fdd34d;
+}
+.author-block h4 a:hover {
+  color:#115b64;
 }
 .content-main {
   padding: 40px 0;
@@ -70,6 +112,7 @@ p { font-size: 15px;}
   border:none;
   transition: .5s;
   border: 1px solid transparent;
+  outline-color:transparent;
 }
 .btn:hover {
   background-color: #fff;
@@ -196,10 +239,12 @@ footer {
   height: 200px;
   background-image:url('../img/debut_dark.png');
   display:flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction:column;
+  align-items: default;
+  justify-content: space-around;
+  padding: 40px;
 }
-footer h4 {
+footer h4, footer p {
   color:#ccc;
   
 }

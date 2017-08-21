@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import Detail from './components/detail';
-import { getBottoms, getShirts, getDresses, getPatterns } from './service/productService';
+import { getBottoms, getShirts, getDresses, getPatterns, getImage, getList } from './service/productService';
 import logo from './logo.svg';
 import './css/reset.css';
 import './css/fonts.css';
@@ -21,7 +21,13 @@ class App extends Component {
       productDesc: '',
       cartTotal: '',
       cartItems: [],
-      heroHeight: 300,
+      heroHeight: 400,
+      // heroBackground: 'https://unsplash.com/photos/OJJIaFZOeX4',
+      heroBackground: 'https://unsplash.it/' + window.innerWidth + '/300/?random',
+      heroWidth: window.innerWidth,
+      heroList: [],
+      heroAuthor: '',
+      heroAuthorUrl: '',
       showModal: false
     }
 
@@ -36,8 +42,26 @@ class App extends Component {
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
+  //1004 list items
+  componentDidMount() {
 
 
+    getList().then(response => {
+      console.log('response:', response);
+
+      var counter = Math.floor(Math.random() * (1004 - 1) + 1);
+      var author = response[counter].author;
+      var authorUrl = response[counter].author_url;
+
+      this.setState({
+        heroList: response,
+        heroAuthor: author,
+        heroAuthorUrl: authorUrl
+      })
+      console.log('heroList', this.state.heroList);
+    })
+
+  }
   handleOpenModal() {
     this.setState({ showModal: true });
   }
@@ -86,7 +110,7 @@ class App extends Component {
       productPrice: price,
       productDesc: desc
     })
-    console.log(this.state.productDesc)
+    // console.log(this.state.productDesc)
   }
 
   addToCart(str, desc) {
@@ -100,7 +124,7 @@ class App extends Component {
       cartTotal: total,
       cartItems: cartArray
     })
-    console.log('cart items ' + this.state.cartItems)
+    // console.log('cart items ' + this.state.cartItems)
   }
 
   // cartLooper() {
@@ -112,25 +136,47 @@ class App extends Component {
   //   }
   // }
 
+  // OUTSIDE API CALL
   randomHero() {
-    var randHeight = Math.floor(Math.random() * (350 - 100)) + 100;
+    // var randHeight = Math.floor(Math.random() * (350 - 100)) + 200;
+    // console.log(window.innerWidth)
+    var randWidth = Math.floor(Math.random() * (window.innerWidth - 400)) + 500;
+    var counter = Math.floor(Math.random() * (1004 - 1) + 1);
+    console.log(counter);
+    console.log(this.state.heroList[counter]);
+    // var newHero = this.state.heroList[counter].post_url;
+    var author = this.state.heroList[counter].author;
+    console.log(author);
+    var authorUrl = this.state.heroList[counter].author_url;
+    console.log('authorURL:', authorUrl);
     this.setState({
-      heroHeight: randHeight
+      heroBackground: 'https://unsplash.it/' + randWidth + '/300/?random',
+      heroAuthor: author,
+      heroAuthorUrl: authorUrl
     })
-    console.log(randHeight, this.state.heroHeight);
+
+    // console.log('newHero variable ', newHero);
+    // console.log('heroBackground', this.state.heroBackground);
+
+    // })
+    // this.setState({
+    // heroHeight: randHeight,
+    // heroWidth: randWidth,
+    // heroBackground: 'url( https://unsplash.it/' + this.state.heroWidth + '/' + this.state.heroHeight + '/?random)'
+
+    // })
+
 
   }
 
-  // heroStyle() {
-  //   this.setState({
-  //   background: 'url( https://unsplash.it/' + window.innerWidth + '/' + this.state.heroHeight + '/?random) no-repeat',
-  //   height: this.state.heroHeight
-  //   })
-  // }
 
 
   render() {
-
+    let varStyle = {
+      height: this.state.heroHeight,
+      width: this.state.heroWidth,
+      backgroundImage: "url(" + this.state.heroBackground + ")"
+    }
     const products = this.state.products.map((product, i) => (
       <ul key={i} className='product'>
         <h3>{product.title}</h3>
@@ -152,13 +198,17 @@ class App extends Component {
             <h3>Login</h3>
           </div>
         </div>
-        {/* OUTSIDE API CALL */}
-        {/* height={this.state.heroHeight} */}
-        <section className="App-header" style={{ background: 'url( https://unsplash.it/' + window.innerWidth + '/' + this.state.heroHeight + '/?random) no-repeat' }} >
-          {/* <div className="box"></div> */}
 
-          <button className="btn" onClick={this.randomHero}>Randomize Hero</button>
-        </section>
+        <div className="App-header-container">
+          {/* OUTSIDE API CALL */}
+          <section className="App-header" style={varStyle} >
+            <button className="btn" onClick={() => this.randomHero()}>Randomize Hero</button>
+          </section>
+        </div>
+
+        <div className="author-block">
+          <h4>Author: &nbsp;<a target="_blank" href={this.state.heroAuthorUrl}>{this.state.heroAuthor}</a></h4>
+        </div>
 
         <section className="content-main">
           <div><h1 className="animateText">50%&nbsp;Off&nbsp;Sale!</h1>
@@ -247,7 +297,8 @@ class App extends Component {
         </section>
 
         <footer>
-              <h4>DevMountain Project by Blake Adams</h4>
+          <h4>DevMountain NoDB Project by Blake Adams</h4>
+          <p>Outside API calls to unsplash.it | Internal API calls to node.js object</p>
         </footer>
 
 
