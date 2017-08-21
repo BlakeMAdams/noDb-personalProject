@@ -52,12 +52,12 @@ p { font-size: 15px;}
   padding-top:15px; 
   height: 50px;
 
-  animation: Title-text-highlight infinite 5s linear;
+  animation: Title-text-move infinite 5s linear;
   display: inline-block;
   position:absolute;
   text-align:left;
  }
-@keyframes Title-text-highlight {
+@keyframes Title-text-move {
   0% { left: 0%; }
   100% { left: 80%; }
 }

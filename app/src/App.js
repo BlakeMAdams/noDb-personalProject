@@ -152,6 +152,7 @@ class App extends Component {
             <h3>Login</h3>
           </div>
         </div>
+        {/* OUTSIDE API CALL */}
         {/* height={this.state.heroHeight} */}
         <section className="App-header" style={{ background: 'url( https://unsplash.it/' + window.innerWidth + '/' + this.state.heroHeight + '/?random) no-repeat' }} >
           {/* <div className="box"></div> */}
