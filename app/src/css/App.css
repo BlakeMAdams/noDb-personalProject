@@ -1,0 +1,205 @@
+body, p, h1, h2, h3, h4, ul, li {
+ color:#222;
+}
+h1 { font-size: 40px; font-family: Pacifico;}
+h2 { font-size: 32px;}
+h3 { font-size: 24px;}
+h4 { font-size: 20px;}
+p { font-size: 15px;}
+ .App {
+  text-align: center;
+}
+.App-topbar {
+  background-color: #fdd34d;
+  padding: 20px 20px;
+  text-align:left;
+  display:flex;
+  justify-content: space-between;
+}
+.App-topbar p {
+  font-size: 18px;
+  margin: 10px 0 0 5px;
+}
+.topbar-nav {
+  display: flex;
+  align-items: center;
+}
+.topbar-nav h3 {
+  margin-right: 10px;
+  text-decoration: underline;
+}
+.topbar-nav h3:hover {
+  color: #115b64;
+}
+.App-logo {
+  
+}
+.App-header {
+  height: 300px;
+  color: white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 10px solid #333;
+  border-bottom: 10px solid #333;
+}
+.content-main {
+  padding: 40px 0;
+  background-image:url('../img/debut_light.png');
+}
+.animateText {
+  /* background-color:rgba(255, 255, 255, 0.3); */
+  padding-top:15px; 
+  height: 50px;
+
+  animation: Title-text-highlight infinite 5s linear;
+  display: inline-block;
+  position:absolute;
+  text-align:left;
+ }
+@keyframes Title-text-highlight {
+  0% { left: 0%; }
+  100% { left: 80%; }
+}
+.btn {
+  background-color: #115b64;
+  color:#fff;
+  font-size: 18px;
+  border-radius: 25px;
+  padding: 15px 40px;
+  border:none;
+  transition: .5s;
+  border: 1px solid transparent;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #115b64;
+  border: 1px solid #115b64;
+}
+.btn.close {
+  border-radius: 50px;
+  padding:20px;
+  line-height:10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+
+.App-intro {
+  font-size: large;
+}
+.nav {
+  display: flex;
+  margin: 80px 20px 40px 20px;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 10px solid #333;
+  
+}
+.col-l {
+  /* width:80%; */
+  
+}
+.item-nav {
+ display:flex;
+ /* justify-content: space-between; */
+ flex-wrap: wrap;
+}
+.button-container { margin-right: 10px;}
+
+
+.item-nav button {
+  width:234px;
+  height:200px;
+  display: block;
+  border-radius: 0;
+  border: 1px solid #777;
+  transition: .25s;
+  
+}
+.item-nav button:active {
+  border:none;
+}
+.item-nav button:hover {
+  border-radius: 250px;
+}
+   .btn-shirt {
+    background-image:url('../img/buttons/shirt.jpg');
+  }
+  .btn-bottom {
+    background-image:url('../img/buttons/bottom.jpg');
+  }
+  .btn-dress {
+    background-image:url('../img/buttons/dress.jpg');
+  }
+  .btn-pattern {
+    background-image:url('../img/buttons/pattern.jpg');
+  }
+  
+.col-r {
+  display:flex;
+  /* width:15%; */
+  margin-left:20px;
+}
+.cart { font-size: 18px;  width: 100%; min-width: 200px; max-width: 350px;
+}
+.cart h3 { padding-bottom: 5px; border-bottom: 3px solid #222;}
+.cart h4 { padding-top: 5px; border-top: 3px solid #222;}
+.cart p { display:flex; margin: 20px 5px; line-height: 24px; text-align: left;}
+
+
+.products-container {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+  align-items: flex-end;
+   
+}
+.product {
+  display:inline-block;
+  /* margin:0 10px 20px 0; */
+  max-width: 250px;
+  height: auto;
+ 
+}
+.product h3 {
+  font-size: 22px;
+  line-height: 32px;
+}
+.product img{
+  width: auto;
+  height: 350px;
+}
+.detail-box {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.detail img {
+  margin-top: 20px;
+  width: auto;
+  height: 450px;
+}
+.detailDesc {
+  font-size: 24px;
+  text-align:center;
+}
+.detailPrice {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align:center;
+}
+footer {
+  height: 200px;
+  background-image:url('../img/debut_dark.png');
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+footer h4 {
+  color:#ccc;
+  
+}
